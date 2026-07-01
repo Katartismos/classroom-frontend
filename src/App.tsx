@@ -1,4 +1,4 @@
-import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -15,7 +15,7 @@ import { dataProvider } from "./providers/data";
 import Dashboard from "./pages/dashboard";
 import { BookOpen, Home } from "lucide-react";
 import { Layout } from "./components/refine-ui/layout/layout";
-import SubjectsList from "./pages/subjects/List";
+import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
 
 function App() {
