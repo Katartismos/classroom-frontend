@@ -61,8 +61,8 @@
   --sidebar-ring: oklch(0.5553 0.1455 48.9975);
   --font-sans: Archivo, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Merriweather, serif;
-  --font-mono: Fira Code, monospace;
-  --radius: 0.675rem;
+  --font-mono: JetBrains Mono, ui-monospace, monospace;
+  --radius: 0.6rem;
   --shadow-x: 0px;
   --shadow-y: 2px;
   --shadow-blur: 3px;
@@ -121,8 +121,8 @@
   --sidebar-ring: oklch(0.7049 0.1867 47.6044);
   --font-sans: Archivo, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Merriweather, serif;
-  --font-mono: Fira Code, monospace;
-  --radius: 0.75rem;
+  --font-mono: JetBrains Mono, ui-monospace, monospace;
+  --radius: 0.6rem;
   --shadow-x: 0px;
   --shadow-y: 2px;
   --shadow-blur: 3px;

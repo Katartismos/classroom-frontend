@@ -1,118 +1,116 @@
+import { GraduationCap, School } from "lucide-react";
+
+export const USER_ROLES = {
+  STUDENT: "student",
+  TEACHER: "teacher",
+  ADMIN: "admin",
+};
+
+export const ROLE_OPTIONS = [
+  {
+    value: USER_ROLES.STUDENT,
+    label: "Student",
+    icon: GraduationCap,
+  },
+  {
+    value: USER_ROLES.TEACHER,
+    label: "Teacher",
+    icon: School,
+  },
+];
+
 export const DEPARTMENTS = [
-  "Information Technology",
   "Computer Science",
-  "Software Engineering",
-  "Electronics and Communication Engineering",
-  "Electrical Engineering",
-  /*
-  "Mechanical Engineering",
-  "Civil Engineering",
+  "Mathematics",
   "Physics",
   "Chemistry",
-  "Mathematics",
   "Biology",
-  "Business Administration",
-  "Economics",
-  "Psychology",
-  "Education",
-  "Accounting",
-  "Finance",
-  "Marketing",
-  "Human Resources",
-  "Management",
-  "Political Science",
-  "Sociology",
-  "Philosophy",
+  "English",
   "History",
   "Geography",
-  "Geology",
-  "Environmental Science",
-  "Biotechnology",
-  "Microbiology",
-  "Genetics",
-  "Nursing",
-  "Pharmacy",
-  "Dentistry",
-  "Medicine",
-  "Law",
-  "Communication",
-  "Journalism",
-  "Library and Information Science",
-  "Architecture",
-  "Interior Design",
-  "Fashion Design",
+  "Economics",
+  "Business Administration",
+  "Engineering",
+  "Psychology",
+  "Sociology",
+  "Political Science",
+  "Philosophy",
+  "Education",
   "Fine Arts",
   "Music",
-  "Performing Arts",
   "Physical Education",
-  "Tourism and Hospitality",
-  "International Relations",
-  "Public Administration",
-  "Social Work",
-  "Agriculture",
-  "Forestry",
-  "Veterinary Medicine",
-  "Food Science and Technology",
-  "Library Science",
-  "Information Science",
-  "Computer Engineering",
-  "Telecommunication Engineering",
-  "Mechatronics Engineering",
-  "Industrial Engineering",
-  "Biomedical Engineering",
-  "Aerospace Engineering",
-  "Materials Science and Engineering",
-  "Petroleum Engineering",
-  */
-];
+  "Law",
+] as const;
 
 export const DEPARTMENT_OPTIONS = DEPARTMENTS.map((dept) => ({
   value: dept,
   label: dept,
 }));
 
-import { Subject } from "../types";
+export const MAX_FILE_SIZE = 3 * 1024 * 1024; // 3MB in bytes
+export const ALLOWED_TYPES = [
+  "image/png",
+  "image/jpeg",
+  "image/jpg",
+  "image/webp",
+];
 
-export const MOCK_SUBJECTS: Subject[] = [
+const getEnvVar = (key: string): string => {
+  const value = import.meta.env[key];
+  if (!value) {
+    throw new Error(`Missing environment variable: ${key}`);
+  }
+  return value;
+};
+
+// export const CLOUDINARY_UPLOAD_URL = getEnvVar("VITE_CLOUDINARY_UPLOAD_URL");
+// export const CLOUDINARY_CLOUD_NAME = getEnvVar("VITE_CLOUDINARY_CLOUD_NAME");
+export const BACKEND_BASE_URL = getEnvVar("VITE_BACKEND_BASE_URL");
+
+// export const BASE_URL = import.meta.env.VITE_API_URL;
+// export const ACCESS_TOKEN_KEY = import.meta.env.VITE_ACCESS_TOKEN_KEY;
+// export const REFRESH_TOKEN_KEY = import.meta.env.VITE_REFRESH_TOKEN_KEY;
+
+// export const REFRESH_TOKEN_URL = `${BASE_URL}/refresh-token`;
+
+// export const CLOUDINARY_UPLOAD_PRESET = getEnvVar(
+//   "VITE_CLOUDINARY_UPLOAD_PRESET",
+// );
+
+export const teachers = [
   {
-    id: 1,
-    code: "CS-101",
-    name: "Introduction to Computer Science",
-    department: "Computer Science",
-    description: "An introduction to the fundamental concepts of computer science, algorithms, and basic programming utilizing Python.",
-    createdAt: new Date("2026-01-15T09:00:00Z"),
+    id: "1",
+    name: "John Doe",
   },
   {
-    id: 2,
-    code: "SE-204",
-    name: "Software Architecture and Design",
-    department: "Software Engineering",
-    description: "Explores the design principles, architectural patterns, and structural designs for building reliable, scalable software systems.",
-    createdAt: new Date("2026-02-10T10:30:00Z"),
+    id: "2",
+    name: "Jane Smith",
   },
   {
-    id: 3,
-    code: "IT-302",
-    name: "Network Security and Cryptography",
-    department: "Information Technology",
-    description: "Covers standard cryptographic protocols, threat modeling, security mechanisms, and administration of secure networks.",
-    createdAt: new Date("2026-03-05T14:00:00Z"),
-  },
-  {
-    id: 4,
-    code: "ECE-110",
-    name: "Signals and Systems",
-    department: "Electronics and Communication Engineering",
-    description: "Fundamentals of continuous-time and discrete-time signals, linear time-invariant systems, Fourier analysis, and filter design.",
-    createdAt: new Date("2026-04-12T11:15:00Z"),
-  },
-  {
-    id: 5,
-    code: "EE-201",
-    name: "Electric Circuit Analysis",
-    department: "Electrical Engineering",
-    description: "Analysis of linear circuits, including Kirchhoff's laws, nodal/mesh analysis, network theorems, and transient response of RL, RC, and RLC circuits.",
-    createdAt: new Date("2026-05-20T08:45:00Z"),
+    id: "3",
+    name: "Dr. Alan Turing",
   },
 ];
 
+export const subjects = [
+  {
+    id: 1,
+    name: "Mathematics",
+    code: "MATH",
+  },
+  {
+    id: 2,
+    name: "Computer Science",
+    code: "CS",
+  },
+  {
+    id: 3,
+    name: "Physics",
+    code: "PHY",
+  },
+  {
+    id: 4,
+    name: "Chemistry",
+    code: "CHEM",
+  },
+];
