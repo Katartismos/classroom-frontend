@@ -19,6 +19,7 @@ import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
 import ClassesCreate from "./pages/classes/create";
 import ClassesList from "./pages/classes/list";
+import ClassesShow from "./pages/classes/show";
 
 function App() {
   return (
@@ -39,28 +40,31 @@ function App() {
                 {
                   name: "dashboard",
                   list: "/",
-                  meta: { label: "Home", icon: <Home />, }
+                  meta: { label: "Home", icon: <Home /> },
                 },
                 {
                   name: "subjects",
                   list: "/subjects",
                   create: "/subjects/create",
-                  meta: { label: "Subjects", icon: <BookOpen />}
+                  meta: { label: "Subjects", icon: <BookOpen /> },
                 },
                 {
                   name: "classes",
                   list: "/classes",
                   create: "/classes/create",
-                  meta: { label: "Classes", icon: <GraduationCap />}
-                }
+                  show: "/classes/show/:id",
+                  meta: { label: "Classes", icon: <GraduationCap /> },
+                },
               ]}
             >
               <Routes>
-                <Route element={
-                  <Layout>
-                    <Outlet />
-                  </Layout>
-                }>
+                <Route
+                  element={
+                    <Layout>
+                      <Outlet />
+                    </Layout>
+                  }
+                >
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/subjects">
                     <Route index element={<SubjectsList />} />
@@ -69,6 +73,7 @@ function App() {
                   <Route path="/classes">
                     <Route index element={<ClassesList />} />
                     <Route path="create" element={<ClassesCreate />} />
+                    <Route path="show/:id" element={<ClassesShow />} />
                   </Route>
                 </Route>
               </Routes>

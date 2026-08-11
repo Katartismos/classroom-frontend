@@ -1,4 +1,5 @@
 import { CreateButton } from "@/components/refine-ui/buttons/create";
+import { ShowButton } from "@/components/refine-ui/buttons/show";
 import { DataTable } from "@/components/refine-ui/data-table/data-table";
 import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
 import { ListView } from "@/components/refine-ui/views/list-view";
@@ -92,7 +93,9 @@ const ClassesList = () => {
               />
             ) : (
               <div className="w-16 h-10 bg-muted rounded-md ml-2 flex items-center justify-center border border-border">
-                <span className="text-[10px] text-muted-foreground">No Banner</span>
+                <span className="text-[10px] text-muted-foreground">
+                  No Banner
+                </span>
               </div>
             );
           },
@@ -103,7 +106,9 @@ const ClassesList = () => {
           size: 200,
           header: () => <p className="column-title">Class Name</p>,
           cell: ({ getValue }) => (
-            <span className="font-medium text-foreground">{getValue<string>()}</span>
+            <span className="font-medium text-foreground">
+              {getValue<string>()}
+            </span>
           ),
         },
         {
@@ -144,18 +149,29 @@ const ClassesList = () => {
             <span className="text-muted-foreground">{getValue<number>()}</span>
           ),
         },
+        {
+          id: "details",
+          size: 140,
+          header: () => <p className="column-title">Details</p>,
+          cell: ({ row }) => (
+            <ShowButton
+              resource="classes"
+              recordItemId={row.original.id}
+              variant="outline"
+              size="sm"
+            >
+              View
+            </ShowButton>
+          ),
+        },
       ],
-      []
+      [],
     ),
     refineCoreProps: {
       resource: "classes",
       pagination: { pageSize: 10, mode: "server" },
       filters: {
-        permanent: [
-          ...searchFilters,
-          ...subjectFilters,
-          ...teacherFilters,
-        ],
+        permanent: [...searchFilters, ...subjectFilters, ...teacherFilters],
       },
       sorters: {
         initial: [
@@ -190,10 +206,7 @@ const ClassesList = () => {
           </div>
 
           <div className="flex gap-2 w-full sm:w-auto flex-wrap">
-            <Select
-              value={selectedSubject}
-              onValueChange={setSelectedSubject}
-            >
+            <Select value={selectedSubject} onValueChange={setSelectedSubject}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Filter by subject" />
               </SelectTrigger>
@@ -208,10 +221,7 @@ const ClassesList = () => {
               </SelectContent>
             </Select>
 
-            <Select
-              value={selectedTeacher}
-              onValueChange={setSelectedTeacher}
-            >
+            <Select value={selectedTeacher} onValueChange={setSelectedTeacher}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Filter by teacher" />
               </SelectTrigger>
