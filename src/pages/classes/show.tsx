@@ -64,7 +64,7 @@ const ClassesShow = () => {
       <ShowViewHeader resource="classes" title="Class Details" />
 
       <div className="banner">
-        {bannerUrl ? (
+        {bannerUrl && bannerCldPubId ? (
           <AdvancedImage
             alt="Class Banner"
             cldImg={bannerPhoto(bannerCldPubId ?? "", name)}
@@ -84,7 +84,7 @@ const ClassesShow = () => {
           <div>
             <Badge variant="outline">{capacity} spots</Badge>
             <Badge
-              variant={status == "active" ? "default" : "secondary"}
+              variant={status === "active" ? "default" : "secondary"}
               data-status={status}
             >
               {status.toUpperCase()}
