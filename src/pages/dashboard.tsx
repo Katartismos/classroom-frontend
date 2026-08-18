@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
     query: classesQuery,
   } = useList<ClassDetails>({
     resource: "classes",
-    pagination: { pageSize: 100 },
+    pagination: { mode: "off" },
     sorters: [{ field: "createdAt", order: "desc" }],
   });
 
@@ -37,7 +37,7 @@ const Dashboard: React.FC = () => {
     query: subjectsQuery,
   } = useList<Subject>({
     resource: "subjects",
-    pagination: { pageSize: 100 },
+    pagination: { mode: "off" },
     sorters: [{ field: "createdAt", order: "desc" }],
   });
 
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
   } = useList<User>({
     resource: "users",
     filters: [{ field: "role", operator: "eq", value: "teacher" }],
-    pagination: { pageSize: 100 },
+    pagination: { mode: "off" },
   });
 
   // Fetch All Users (for student metrics & comprehensive staff view)
@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
     query: usersQuery,
   } = useList<User>({
     resource: "users",
-    pagination: { pageSize: 100 },
+    pagination: { mode: "off" },
   });
 
   const classes = useMemo(() => classesQuery.data?.data || [], [classesQuery.data]);
