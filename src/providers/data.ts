@@ -29,10 +29,15 @@ const options: CreateDataProviderOptions = {
     getEndpoint: ({ resource }) => resource,
 
     buildQueryParams: async ({ resource, pagination, filters, sorters }) => {
-      const page = pagination?.currentPage ?? 1;
-      const pageSize = pagination?.pageSize ?? 10;
+      const isPaginationOff = pagination?.mode === "off";
+      const params: Record<string, string | number> = {};
 
-      const params: Record<string, string | number> = { page, limit: pageSize };
+      if (!isPaginationOff) {
+        const page = pagination?.currentPage ?? 1;
+        const pageSize = pagination?.pageSize ?? 10;
+        params.page = page;
+        params.limit = pageSize;
+      }
 
       if (sorters?.length) {
         params.sort = sorters.map((s) => s.field).join(",");
